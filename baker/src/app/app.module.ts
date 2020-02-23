@@ -7,10 +7,14 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { HomepageComponent } from './homepage/homepage.component';
 
 import {MatTabsModule} from '@angular/material/tabs';
+import { OurstoryComponent } from './ourstory/ourstory.component';
+import { ContactusComponent } from './contactus/contactus.component';
 @NgModule({
   declarations: [
     AppComponent,
-    HomepageComponent
+    HomepageComponent,
+    OurstoryComponent,
+    ContactusComponent
   ],
   imports: [
     BrowserModule,
