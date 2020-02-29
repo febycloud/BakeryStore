@@ -12,11 +12,13 @@ import { ContactusComponent } from './contactus/contactus.component';
 import { ItemcardComponent } from './itemcard/itemcard.component';
 import {MatToolbarModule} from '@angular/material/toolbar';
 import { RouterModule, Routes } from '@angular/router';
-
+import { DetailsComponent } from './details/details.component';
+import {MatTableModule} from '@angular/material/table';
 const appRoutes: Routes = [
   { path: 'ourstory', component: OurstoryComponent },
   { path: 'contactus', component: ContactusComponent },
   { path: 'sales', component: ItemcardComponent },
+  { path: 'products/:id', component: DetailsComponent },
 ];
 @NgModule({
   declarations: [
@@ -24,7 +26,8 @@ const appRoutes: Routes = [
     HomepageComponent,
     OurstoryComponent,
     ContactusComponent,
-    ItemcardComponent
+    ItemcardComponent,
+    DetailsComponent
   ],
   imports: [
     RouterModule.forRoot(
@@ -37,7 +40,8 @@ const appRoutes: Routes = [
     MatCardModule,
     MatTabsModule,
     MatButtonModule,
-    MatToolbarModule
+    MatToolbarModule,
+    MatTableModule
   ],
   providers: [],
   bootstrap: [AppComponent]
