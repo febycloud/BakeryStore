@@ -1,3 +1,6 @@
+div{
+  display: inline-block;
+}
 .example-card {
     max-width: 200px;
    margin: 1em 1em 1em 1em ;

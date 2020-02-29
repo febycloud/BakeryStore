@@ -1,6 +1,12 @@
-<mat-tab-group>
-    <mat-tab label="Products"> Content 1 </mat-tab>
-    <mat-tab label="Sales"> <app-itemcard></app-itemcard> </mat-tab>
-    <mat-tab label="Our_story"> <app-ourstory></app-ourstory> </mat-tab>
-    <mat-tab label="Contact_us"> <app-contactus></app-contactus> </mat-tab>
-  </mat-tab-group>
+<mat-toolbar color="primary">
+  <mat-toolbar-row>
+    <h1>SimpleCRM</h1>&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;
+  
+    <div>
+      <a mat-button [routerLink]="'/accounts'"> Index </a>
+      <a mat-button [routerLink]="'/sales'"> Sales </a>
+      <a mat-button [routerLink]="'/contactus'"> Contacts </a>
+      <a mat-button [routerLink]="'/ourstory'"> Our Story </a>     
+    </div>
+  </mat-toolbar-row>
+</mat-toolbar>

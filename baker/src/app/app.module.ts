@@ -10,6 +10,14 @@ import {MatTabsModule} from '@angular/material/tabs';
 import { OurstoryComponent } from './ourstory/ourstory.component';
 import { ContactusComponent } from './contactus/contactus.component';
 import { ItemcardComponent } from './itemcard/itemcard.component';
+import {MatToolbarModule} from '@angular/material/toolbar';
+import { RouterModule, Routes } from '@angular/router';
+
+const appRoutes: Routes = [
+  { path: 'ourstory', component: OurstoryComponent },
+  { path: 'contactus', component: ContactusComponent },
+  { path: 'sales', component: ItemcardComponent },
+];
 @NgModule({
   declarations: [
     AppComponent,
@@ -19,14 +27,20 @@ import { ItemcardComponent } from './itemcard/itemcard.component';
     ItemcardComponent
   ],
   imports: [
+    RouterModule.forRoot(
+      appRoutes,
+      { enableTracing: true } // <-- debugging purposes only
+    ),
     BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule,
     MatCardModule,
     MatTabsModule,
-    MatButtonModule
+    MatButtonModule,
+    MatToolbarModule
   ],
   providers: [],
   bootstrap: [AppComponent]
 })
+
 export class AppModule { }
