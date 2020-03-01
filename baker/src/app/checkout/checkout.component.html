@@ -1,0 +1,46 @@
+<h2>&#160;&#160;Information</h2>
+<mat-card class="card">
+<form class="example-form">
+    <mat-form-field class="example-full-width">
+        <mat-label>Name</mat-label>
+        <input matInput placeholder="Adam Baker">
+    </mat-form-field>
+    <mat-form-field class="example-full-width">
+        <mat-label>Phone</mat-label>
+        <input matInput placeholder="123 456 7890">
+    </mat-form-field>
+    <mat-form-field class="example-full-width">
+        <mat-label>Email</mat-label>
+        <input matInput placeholder="adamabc123@abc.com">
+    </mat-form-field>
+    <mat-form-field class="example-full-width">
+        <mat-label>Apt</mat-label>
+        <input matInput placeholder="Apt A1">
+    </mat-form-field>
+    <mat-form-field class="example-full-width">
+        <mat-label>Address</mat-label>
+        <input matInput placeholder="123 King St">
+    </mat-form-field>
+    <mat-form-field class="example-full-width">
+        <mat-label>City</mat-label>
+        <input matInput placeholder="Toronto">
+    </mat-form-field>
+    <mat-form-field class="example-full-width">
+        <mat-label>Province</mat-label>
+        <mat-select [(value)]="selected">
+          <mat-option value="Ontario">Ontario</mat-option>
+          <mat-option value="British Columbia">British Columbia</mat-option>
+          <mat-option value="Alberta">Alberta</mat-option>
+        </mat-select>
+    </mat-form-field>
+
+    <mat-form-field class="example-full-width">
+        <mat-label>Paymentmethod</mat-label>
+        <mat-select [(value)]="selected">
+          <mat-option value="Visa">Visa</mat-option>
+          <mat-option value="MasterCard">MasterCard</mat-option>
+          <mat-option value="American Express">American Express</mat-option>
+        </mat-select>
+    </mat-form-field>
+ </form>
+</mat-card>

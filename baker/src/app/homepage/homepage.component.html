@@ -1,12 +1,24 @@
-<mat-toolbar color="primary">
+<mat-toolbar color="primary" class="menubar">
   <mat-toolbar-row>
-    <h1>SimpleCRM</h1>&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;
-  
-    <div>
+
+    <div class="title">
+  <h1>SimpleCRM</h1>&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;
+  </div>
+
+  <div class="bar">
+    <div class="menu">
       <a mat-button [routerLink]="'/accounts'"> Index </a>
       <a mat-button [routerLink]="'/sales'"> Sales </a>
       <a mat-button [routerLink]="'/contactus'"> Contacts </a>
-      <a mat-button [routerLink]="'/ourstory'"> Our Story </a>     
+      <a mat-button [routerLink]="'/ourstory'"> Our Story </a> 
     </div>
+
+    <div class="cart">
+    <button mat-icon-button [routerLink]="'/cart'">
+        <mat-icon>shopping_cart</mat-icon>
+  </button>
+  </div> 
+  
+</div> 
   </mat-toolbar-row>
 </mat-toolbar>

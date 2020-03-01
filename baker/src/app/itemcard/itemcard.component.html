@@ -7,7 +7,7 @@
     <mat-card-content>$ {{product.price}}</mat-card-content>
     <mat-card-actions>
         <button mat-button [routerLink]="['/products',product.id]">Detail</button>
-        <button mat-button>Cart</button>
+        <button mat-button (click)="addToCart(product)">Cart</button>
       </mat-card-actions>
   </mat-card>
 </div>

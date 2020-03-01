@@ -1,0 +1,15 @@
+.card{
+margin-left: 50px;
+width:70%;
+}
+
+.comment{
+    margin-top: 5px;
+    width: 90%;
+}
+
+.button{
+    width: 95px;
+    display: block;
+    margin:0 auto;
+}

@@ -1,0 +1,19 @@
+.menubar{
+    box-shadow: 0px 5px 5px grey;
+}
+div{
+    display: inline-block;
+}
+.title{
+    position: relative;
+    left: 20px;
+    margin-right: 20px;
+    margin-top: 30px;
+}
+.menu{
+    margin-left: 40px;
+}
+.cart{
+    position: absolute;
+    right: 30px;
+}
