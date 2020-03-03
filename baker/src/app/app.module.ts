@@ -34,6 +34,7 @@ const appRoutes: Routes = [
   { path: 'cart', component: CartComponent },
   { path: 'shipment', component: CheckoutComponent },
   { path: 'success', component: SuccessComponent },
+  { path: 'index', component: IndexComponent },
   
 ];
 @NgModule({
@@ -69,8 +70,7 @@ const appRoutes: Routes = [
     MatSelectModule,
     MatCheckboxModule,
     MatFormFieldModule,
-    NgbModule,
-    
+    NgbModule
   ],
   providers: [],
   bootstrap: [AppComponent]
