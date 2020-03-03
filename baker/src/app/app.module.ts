@@ -25,6 +25,7 @@ import {MatCheckboxModule} from '@angular/material/checkbox';
 import {MatFormFieldModule} from '@angular/material/form-field';
 import { SuccessComponent } from './success/success.component';
 import { IndexComponent } from './index/index.component';
+import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
 const appRoutes: Routes = [
   { path: 'ourstory', component: OurstoryComponent },
   { path: 'contactus', component: ContactusComponent },
@@ -67,7 +68,9 @@ const appRoutes: Routes = [
     MatInputModule,
     MatSelectModule,
     MatCheckboxModule,
-    MatFormFieldModule
+    MatFormFieldModule,
+    NgbModule,
+    
   ],
   providers: [],
   bootstrap: [AppComponent]
