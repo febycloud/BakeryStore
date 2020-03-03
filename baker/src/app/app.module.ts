@@ -23,6 +23,8 @@ import {MatInputModule} from '@angular/material/input';
 import {MatSelectModule} from '@angular/material/select';
 import {MatCheckboxModule} from '@angular/material/checkbox';
 import {MatFormFieldModule} from '@angular/material/form-field';
+import { SuccessComponent } from './success/success.component';
+import { IndexComponent } from './index/index.component';
 const appRoutes: Routes = [
   { path: 'ourstory', component: OurstoryComponent },
   { path: 'contactus', component: ContactusComponent },
@@ -30,6 +32,7 @@ const appRoutes: Routes = [
   { path: 'products/:id', component: DetailsComponent },
   { path: 'cart', component: CartComponent },
   { path: 'shipment', component: CheckoutComponent },
+  { path: 'success', component: SuccessComponent },
   
 ];
 @NgModule({
@@ -41,7 +44,9 @@ const appRoutes: Routes = [
     ItemcardComponent,
     DetailsComponent,
     CartComponent,
-    CheckoutComponent
+    CheckoutComponent,
+    SuccessComponent,
+    IndexComponent
   ],
   imports: [
     RouterModule.forRoot(

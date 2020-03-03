@@ -42,5 +42,23 @@
           <mat-option value="American Express">American Express</mat-option>
         </mat-select>
     </mat-form-field>
+
+    <mat-form-field class="example-full-width">
+        <mat-label>Name on Card</mat-label>
+        <input matInput placeholder="John Baker">
+    </mat-form-field>
+    <mat-form-field class="example-full-width">
+        <mat-label>Card Number</mat-label>
+        <input matInput placeholder="1234 1234 1234 1234">
+    </mat-form-field>
+    <mat-form-field class="example-full-width">
+        <mat-label>Expire Date</mat-label>
+        <input matInput placeholder="MM/YY">
+    </mat-form-field>
+    <mat-form-field class="example-full-width">
+        <mat-label>CVV</mat-label>
+        <input matInput placeholder="000 or 0000">
+    </mat-form-field>
  </form>
+ <a mat-button [routerLink]="'/success'">Check out</a>
 </mat-card>
