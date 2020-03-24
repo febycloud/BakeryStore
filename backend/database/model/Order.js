@@ -12,6 +12,12 @@ let Order=new Schema({
     quantity:{type:Number},
     comment:{type:String},
     total:{type:String},
-    date:{type:Date},
-    collection: 'orders'   
+    date:{type:Date}
+},{
+    
+    collection: 'Order'   
 })
+
+
+
+module.exports = mongoose.model('Order', Order);

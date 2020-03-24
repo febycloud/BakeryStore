@@ -1,4 +1,5 @@
 import { BrowserModule } from '@angular/platform-browser';
+import { ReactiveFormsModule } from '@angular/forms';
 import { NgModule } from '@angular/core';
 import {MatButtonModule} from '@angular/material/button';
 import { AppRoutingModule } from './app-routing.module';
@@ -26,6 +27,7 @@ import {MatFormFieldModule} from '@angular/material/form-field';
 import { SuccessComponent } from './success/success.component';
 import { IndexComponent } from './index/index.component';
 import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
+import { HttpClientModule } from '@angular/common/http';
 const appRoutes: Routes = [
   { path: 'ourstory', component: OurstoryComponent },
   { path: 'contactus', component: ContactusComponent },
@@ -70,7 +72,10 @@ const appRoutes: Routes = [
     MatSelectModule,
     MatCheckboxModule,
     MatFormFieldModule,
-    NgbModule
+    NgbModule,
+    HttpClientModule,
+    ReactiveFormsModule
+
   ],
   providers: [],
   bootstrap: [AppComponent]
