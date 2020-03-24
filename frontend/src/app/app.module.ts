@@ -16,7 +16,6 @@ import { RouterModule, Routes } from '@angular/router';
 import { DetailsComponent } from './details/details.component';
 import {MatTableModule} from '@angular/material/table';
 import { CartComponent } from './cart/cart.component';
-import { CheckoutComponent } from './checkout/checkout.component';
 import {MatIconModule} from '@angular/material/icon';
 import {MatListModule} from '@angular/material/list';
 import {MatExpansionModule} from '@angular/material/expansion';
@@ -28,13 +27,15 @@ import { SuccessComponent } from './success/success.component';
 import { IndexComponent } from './index/index.component';
 import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
 import { HttpClientModule } from '@angular/common/http';
+import { ShippingComponent } from './shipping/shipping.component';
+import{ShippingService} from '../app/shipping.service';
 const appRoutes: Routes = [
   { path: 'ourstory', component: OurstoryComponent },
   { path: 'contactus', component: ContactusComponent },
   { path: 'sales', component: ItemcardComponent },
   { path: 'products/:id', component: DetailsComponent },
   { path: 'cart', component: CartComponent },
-  { path: 'shipment', component: CheckoutComponent },
+  { path: 'shipping', component: ShippingComponent },
   { path: 'success', component: SuccessComponent },
   { path: 'index', component: IndexComponent },
   
@@ -48,14 +49,14 @@ const appRoutes: Routes = [
     ItemcardComponent,
     DetailsComponent,
     CartComponent,
-    CheckoutComponent,
     SuccessComponent,
-    IndexComponent
+    IndexComponent,
+    ShippingComponent
   ],
   imports: [
     RouterModule.forRoot(
       appRoutes,
-      { enableTracing: true } // <-- debugging purposes only
+      //{ enableTracing: true } // <-- debugging purposes only
     ),
     BrowserModule,
     AppRoutingModule,
@@ -77,7 +78,7 @@ const appRoutes: Routes = [
     ReactiveFormsModule
 
   ],
-  providers: [],
+  providers: [ShippingService],
   bootstrap: [AppComponent]
 })
 
