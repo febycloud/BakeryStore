@@ -21,4 +21,62 @@
     </mat-card>
 </div>
 <br><br>
+<div class="information">
+<mat-expansion-panel>
+  <mat-expansion-panel-header>
+    <mat-panel-title>
+      Shipping and Payment
+    </mat-panel-title>
+    <mat-panel-description>
+      Type your information
+    </mat-panel-description>
+  </mat-expansion-panel-header>
+
+  <mat-form-field class="matform">
+    <mat-label>Full Name</mat-label>
+    <input matInput></mat-form-field><br>
+    <mat-form-field class="matform">
+    <mat-label>Phone</mat-label>
+    <input matInput type="number" placeholder="1234567890"></mat-form-field><br>
+    <mat-form-field class="matform">
+    <mat-label>Email</mat-label>
+    <input matInput placeholder="abc123@abc.com"></mat-form-field><br>
+    <mat-form-field class="matform">
+    <mat-label>Address</mat-label>
+    <input matInput placeholder="123 King St"></mat-form-field><br>
+    <mat-form-field class="matform">
+    <mat-label>Delivery Note</mat-label>
+    <input matInput placeholder="Apt number,comments"></mat-form-field><br>
+    <mat-form-field class="matform">
+    <mat-label>City</mat-label>
+    <input matInput placeholder="City"></mat-form-field><br>
+    <mat-form-field class="matform">
+    <mat-label>Province</mat-label><mat-select>
+    <mat-option *ngFor="let province of provinces" [value]="province.value">
+      {{province.viewValue}}
+    </mat-option></mat-select></mat-form-field><br>
+    <mat-form-field class="matform">
+    <mat-label>Postal Code</mat-label>
+    <input matInput placeholder="A9A 5B5"></mat-form-field><br>
+    <mat-form-field class="matform">
+    <mat-label>Payment Method</mat-label><mat-select>
+      <mat-option *ngFor="let payment of payments" [value]="payment.value">
+        {{payment.value}}
+      </mat-option></mat-select></mat-form-field><br>
+      <mat-form-field class="matform">
+        <mat-label>CardNumber</mat-label>
+        <input matInput type="number" placeholder="1234 5678 9012 3456"></mat-form-field><br>
+        <mat-form-field class="matform">
+          <mat-label>Name on Card</mat-label>
+          <input matInput  placeholder="Adam Baker"></mat-form-field><br>
+          <mat-form-field class="matform">
+            <mat-label>Expired Date</mat-label>
+            <input matInput  placeholder="01/25"></mat-form-field><br>
+            <mat-form-field class="matform">
+              <mat-label>CVV</mat-label>
+              <input matInput type="number" placeholder="123"></mat-form-field><br>
+</mat-expansion-panel>
+</div>
+<br><br>
+<br><br>
   <a mat-raised-button color="primary" (click)="makeOrder()" class="button"  > Checkout </a>

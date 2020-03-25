@@ -27,15 +27,14 @@ import { SuccessComponent } from './success/success.component';
 import { IndexComponent } from './index/index.component';
 import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
 import { HttpClientModule } from '@angular/common/http';
-import { ShippingComponent } from './shipping/shipping.component';
-import{ShippingService} from '../app/shipping.service';
+import{OrderService} from'../app/order.service';
+
 const appRoutes: Routes = [
   { path: 'ourstory', component: OurstoryComponent },
   { path: 'contactus', component: ContactusComponent },
   { path: 'sales', component: ItemcardComponent },
   { path: 'products/:id', component: DetailsComponent },
   { path: 'cart', component: CartComponent },
-  { path: 'shipping', component: ShippingComponent },
   { path: 'success', component: SuccessComponent },
   { path: 'index', component: IndexComponent },
   
@@ -51,7 +50,7 @@ const appRoutes: Routes = [
     CartComponent,
     SuccessComponent,
     IndexComponent,
-    ShippingComponent
+    
   ],
   imports: [
     RouterModule.forRoot(
@@ -74,11 +73,11 @@ const appRoutes: Routes = [
     MatCheckboxModule,
     MatFormFieldModule,
     NgbModule,
-    HttpClientModule,
+    HttpClientModule, 
     ReactiveFormsModule
 
   ],
-  providers: [ShippingService],
+  providers: [OrderService],
   bootstrap: [AppComponent]
 })
 

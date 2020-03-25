@@ -1,3 +1,3 @@
 module.exports = {
-  DB: 'mongodb://localhost:27017/orderlist'
+  DB: 'mongodb+srv://fei:fei@bakery-tijpa.mongodb.net/test'
 };

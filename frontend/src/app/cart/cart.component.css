@@ -1,6 +1,7 @@
 .card{
-margin-left: 50px;
-width:70%;
+margin-left: 150px;
+margin-right: 150px;
+
 }
 
 .comment{
@@ -12,4 +13,13 @@ width:70%;
     width: 95px;
     display: block;
     margin:0 auto;
+}
+
+.information {
+    margin-left: 150px;
+    margin-right: 150px;
+     
+  }
+.matform{
+    width: 95%;
 }

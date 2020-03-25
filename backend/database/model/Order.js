@@ -4,18 +4,33 @@ const Schema=mongoose.Schema;
 //define collections
 
 let Order=new Schema({
-    order_id:{type:String},
-    customer_id:{type:String},
+    orderId:{type:String},
+    status:{type:String},
     subtotal:{type:Number},
     tax:{type:Number},
-    item_id:{type:String},
-    quantity:{type:Number},
-    comment:{type:String},
-    total:{type:String},
-    date:{type:Date}
+    total:{type:Number},
+    date:{type:Date},
+    orderProductId:{ type: Array},
+    orderProductName:{ type: Array},
+    orderProductIsDonation:{ type: Array},
+    orderProductIsGift:{type: Array},
+    orderProductComment:{type: Array},
+    orderProductQuantity:{ type: Array},
+    orderProductPrice:{ type: Array},
+    paymentMethod:{type:String},
+    customerFullName:{type:String},
+    phone:{type:Number},
+    email:{type:String},
+    shippingAddress:{type:String},
+    deliveryNote:{type:String},
+    city:{type:String},
+    province:{type:String},
+    postalCode:{type:String},
+    shippingDetail:{type:String}
+
 },{
     
-    collection: 'Order'   
+    collection: 'orders'   
 })
 
 
