@@ -1,11 +1,26 @@
-export default class Order{
-    order_id:String;
-    customer_id:String;
-    subtotal:Number;
-    tax:Number;
-    item_id:String;
-    quantity:Number;
-    comment:String;
-    total:String;
-    date:Date;
+export class Order{
+constructor(
+    public orderId:String,
+    public status:String,
+    public subtotal:Number,
+    public tax:Number,
+    public total:Number,
+    public date:Date,
+    public orderProductId:Array<String>,
+    public orderProductName:Array<String>,
+    public orderProductIsDonation:Array<Boolean>,
+    public orderProductIsGift:Array<Boolean>,
+    public orderProductComment:Array<String>,
+    public orderProductQuantity:Array<Number>,
+    public orderProductPrice:Array<Number>,
+    public paymentMethod:String,
+    public customerFullName:String,
+    public phone:String,
+    public email:String,
+    public shippingAddress:String,
+    public deliveryNote:String,
+    public city:String,
+    public province:String,
+    public postalCode:String,
+    public shippingDetail:String){}
 }

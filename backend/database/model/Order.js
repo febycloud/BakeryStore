@@ -19,7 +19,7 @@ let Order=new Schema({
     orderProductPrice:{ type: Array},
     paymentMethod:{type:String},
     customerFullName:{type:String},
-    phone:{type:Number},
+    phone:{type:String},
     email:{type:String},
     shippingAddress:{type:String},
     deliveryNote:{type:String},

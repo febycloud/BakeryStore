@@ -1,22 +1,23 @@
 
 <h1>&#160;&#160;YOUR SHOPPING CART</h1>
+<div [formGroup]="model">
 <div class="cart-item" *ngFor="let item of items">
 <br>
     <mat-card class="card">
-    <b>Item:</b>    
-    {{ item.name }}<br>
-    <b>Price:</b>  
+    <b>Item:</b>  
+    {{ item.name }}<br><input value="{{item.name}}" formArrayName="orderProductName">
+    <b>Price:</b>   <input value="{{item.price}}">
     {{ item.price}} &#160;&#160;&#160;&#160;
     <mat-form-field>
         <mat-label>Qty:</mat-label>
-        <input matInput type="number" min="1">
+        <input matInput type="number" min="0" value="{{item.orderQty}}">
       </mat-form-field>
-    <br>
-    <mat-checkbox>This is a gift</mat-checkbox> &#160;&#160;
-    <mat-checkbox>Donate it </mat-checkbox><br>
+    <br> {{item.orderGift.value| json}} {{item.orderDonate.value}}
+    <mat-checkbox [checked]="item.orderGift">This is a gift</mat-checkbox> &#160;&#160;
+    <mat-checkbox [checked]="item.orderDonate">Donate it </mat-checkbox><br>
     <mat-form-field class="comment"> 
     <mat-label>Leave a comment</mat-label>
-    <textarea matInput placeholder="I want ..."></textarea>
+    <textarea matInput placeholder="I want ..." value='{{item.orderComment}}'></textarea>
     </mat-form-field>
     </mat-card>
 </div>
@@ -34,33 +35,33 @@
 
   <mat-form-field class="matform">
     <mat-label>Full Name</mat-label>
-    <input matInput></mat-form-field><br>
+    <input matInput formControlName="customerFullName"></mat-form-field><br>
     <mat-form-field class="matform">
     <mat-label>Phone</mat-label>
-    <input matInput type="number" placeholder="1234567890"></mat-form-field><br>
+    <input matInput placeholder="123-456-7890" formControlName="phone"></mat-form-field><br>
     <mat-form-field class="matform">
     <mat-label>Email</mat-label>
-    <input matInput placeholder="abc123@abc.com"></mat-form-field><br>
+    <input matInput placeholder="abc123@abc.com" formControlName="email"></mat-form-field><br>
     <mat-form-field class="matform">
     <mat-label>Address</mat-label>
-    <input matInput placeholder="123 King St"></mat-form-field><br>
+    <input matInput placeholder="123 King St" formControlName="shippingAddress"></mat-form-field><br>
     <mat-form-field class="matform">
     <mat-label>Delivery Note</mat-label>
-    <input matInput placeholder="Apt number,comments"></mat-form-field><br>
+    <input matInput placeholder="Apt number,comments" formControlName="deliveryNote"></mat-form-field><br>
     <mat-form-field class="matform">
     <mat-label>City</mat-label>
-    <input matInput placeholder="City"></mat-form-field><br>
+    <input matInput placeholder="City" formControlName="city"></mat-form-field><br>
     <mat-form-field class="matform">
-    <mat-label>Province</mat-label><mat-select>
-    <mat-option *ngFor="let province of provinces" [value]="province.value">
+    <mat-label>Province</mat-label><mat-select formControlName="province">
+    <mat-option *ngFor="let province of provinces" [value]="province.value" >
       {{province.viewValue}}
     </mat-option></mat-select></mat-form-field><br>
     <mat-form-field class="matform">
     <mat-label>Postal Code</mat-label>
-    <input matInput placeholder="A9A 5B5"></mat-form-field><br>
+    <input matInput placeholder="A9A 5B5" formControlName="postalCode"></mat-form-field><br>
     <mat-form-field class="matform">
-    <mat-label>Payment Method</mat-label><mat-select>
-      <mat-option *ngFor="let payment of payments" [value]="payment.value">
+    <mat-label>Payment Method</mat-label><mat-select formControlName="paymentMethod">
+      <mat-option *ngFor="let payment of payments" [value]="payment.value" >
         {{payment.value}}
       </mat-option></mat-select></mat-form-field><br>
       <mat-form-field class="matform">
@@ -75,8 +76,10 @@
             <mat-form-field class="matform">
               <mat-label>CVV</mat-label>
               <input matInput type="number" placeholder="123"></mat-form-field><br>
+
+              <p>{{model.value |json}}</p>
 </mat-expansion-panel>
-</div>
-<br><br>
-<br><br>
-  <a mat-raised-button color="primary" (click)="makeOrder()" class="button"  > Checkout </a>
+</div></div>
+<br>
+
+<a mat-raised-button color="primary" (click)="makeOrder()" class="button"  > Checkout </a><br>

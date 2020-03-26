@@ -10,7 +10,11 @@ export const items = [
       comment:'this is comment1',
       fat:'30%',
       sugar:'15g/150g',
-      calorie:'130kcal'
+      calorie:'130kcal',
+      orderDonate:false,
+      orderGift:false,
+      orderComment:'',
+      orderQty:0
     },
     {
       id:'CA105',
@@ -23,7 +27,11 @@ export const items = [
       comment:'this is comment2',
       fat:'40%',
       sugar:'20g/150g',
-      calorie:'160kcal'
+      calorie:'160kcal',
+      orderDonate:false,
+      orderGift:false,
+      orderComment:'',
+      orderQty:0
     },
     {
       id:'DS115',
@@ -36,6 +44,10 @@ export const items = [
       comment:'this is comment1',
       fat:'10%',
       sugar:'30g/150g',
-      calorie:'345kcal'
+      calorie:'345kcal',
+      orderDonate:true,
+      orderGift:false,
+      orderComment:'',
+      orderQty:0
     }
   ];

@@ -28,6 +28,7 @@ import { IndexComponent } from './index/index.component';
 import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
 import { HttpClientModule } from '@angular/common/http';
 import{OrderService} from'../app/order.service';
+import { FormsModule} from '@angular/forms';
 
 const appRoutes: Routes = [
   { path: 'ourstory', component: OurstoryComponent },
@@ -59,6 +60,7 @@ const appRoutes: Routes = [
     ),
     BrowserModule,
     AppRoutingModule,
+    FormsModule,
     BrowserAnimationsModule,
     MatCardModule,
     MatTabsModule,
