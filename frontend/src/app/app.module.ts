@@ -29,7 +29,8 @@ import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
 import { HttpClientModule } from '@angular/common/http';
 import{OrderService} from'../app/order.service';
 import { FormsModule} from '@angular/forms';
-
+import { FooterComponent } from './footer/footer.component';
+import { GoogleMapsModule } from '@angular/google-maps'
 const appRoutes: Routes = [
   { path: 'ourstory', component: OurstoryComponent },
   { path: 'contactus', component: ContactusComponent },
@@ -51,6 +52,7 @@ const appRoutes: Routes = [
     CartComponent,
     SuccessComponent,
     IndexComponent,
+    FooterComponent,
     
   ],
   imports: [
@@ -58,6 +60,7 @@ const appRoutes: Routes = [
       appRoutes,
       //{ enableTracing: true } // <-- debugging purposes only
     ),
+    GoogleMapsModule,
     BrowserModule,
     AppRoutingModule,
     FormsModule,

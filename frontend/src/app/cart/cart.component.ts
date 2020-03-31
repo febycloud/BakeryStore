@@ -3,7 +3,7 @@ import { CartService } from '../cart.service';
 import{OrderService} from '../order.service';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import {Router} from '@angular/router';
-import {Order} from '../Order';
+import {Order, orderProducts} from '../Order';
 import { empty } from 'rxjs';
 interface Province {
   value: string;
@@ -23,6 +23,10 @@ interface paymentMethod {
 
 
 export class CartComponent implements OnInit {
+  angForm: FormGroup;
+
+  constructor(private fb: FormBuilder,private cartService: CartService,private orderService:OrderService , private router: Router
+    ) {this.createForm();}
   //display part
 
   //interface of province option
@@ -45,20 +49,22 @@ export class CartComponent implements OnInit {
   order;
 
   //object for collect forms
-  model=this.fb.group({
+  createForm(){
+  this.angForm=this.fb.group({
     orderId:[''],
     status:['TobeConfirmd'],
     subtotal:[],
     tax:[],
     total:[],
     date:[],
-    orderProductId:this.fb.array([]),
-    orderProductName:this.fb.array([]),
-    orderProductIsDonation:this.fb.array([]),
-    orderProductIsGift:this.fb.array([]),
-    orderProductComment:this.fb.array([]),
-    orderProductQuantity:this.fb.array([]),
-    orderProductPrice:this.fb.array([]),
+    orderProducts:this.fb.array([ this.fb.group({
+      Id:'',
+      productName:'',
+      isDonation:'',
+      isGift:'',
+      comment:'',
+      price:'',
+      quantity:''})]),
     paymentMethod:[''],
     customerFullName:[''],
     phone:[''],
@@ -70,22 +76,23 @@ export class CartComponent implements OnInit {
     postalCode:[''],
     shippingDetail:[''],
   })
-  
-  constructor(private fb: FormBuilder,private cartService: CartService,private orderService:OrderService , private router: Router
-    ) {}
-  makeOrder2(){
-    this.order=this.orderService.addOrder(123,'TobeConfirmed',30,3,33,'2020-3-21',[1,2],['a','b'],[true,false],[false,true],["","no sugar"],[1,2],[20,6],"Visa",'lala',1233334567,'abc@aa.com','26 King St','left it at door','waterlo',"ON",'N2L 7G7','');
+}
+
+  makeOrder(){
+   //this.order=this.orderService.addOrder(123,'TobeConfirmd',11,2,14,new Date(),[1,'cake',false,false,'no sugar',3,66],'Visa','nami',224,'aaa@a.com','aaa1 st','lala','waterloo','lamu','n2bbcd','');
     setTimeout(()=>this.router.navigate(['success']),500);
   }
-
-  makerOrder(){
-
-  }
+  orders=[];
+makeItem(item){
+  
+  console.log(this.orders);
+}
+ 
 
   ngOnInit() {
     this.items = this.cartService.getItems();
     }
-  
+   
 
 
 }

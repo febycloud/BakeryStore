@@ -10,9 +10,9 @@ export class OrderService {
 
   constructor(private http: HttpClient) { }
 
-  addOrder(orderId,status,subtotal,tax,total,date,orderProductId,orderProductName,orderProductIsDonation,orderProductIsGift,orderProductComment,orderProductQuantity,orderProductPrice,paymentMethod,customerFullName,phone,email,shippingAddress,deliveryNote,city,province,postalCode,shippingDetail) {
+  addOrder(orderId,status,subtotal,tax,total,date,orderProducts,paymentMethod,customerFullName,phone,email,shippingAddress,deliveryNote,city,province,postalCode,shippingDetail) {
     const obj = {
-      orderId,status,subtotal,tax,total,date,orderProductId,orderProductName,orderProductIsDonation,orderProductIsGift,orderProductComment,orderProductQuantity,orderProductPrice,paymentMethod,customerFullName,phone,email,shippingAddress,deliveryNote,city,province,postalCode,shippingDetail
+      orderId,status,subtotal,tax,total,date,orderProducts,paymentMethod,customerFullName,phone,email,shippingAddress,deliveryNote,city,province,postalCode,shippingDetail
     };
     console.log(obj);
     this.http.post(`${this.uri}/add`, obj)

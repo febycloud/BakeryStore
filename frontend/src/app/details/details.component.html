@@ -8,40 +8,36 @@
 
 <div class="description">
 <h4>Description</h4>
-  <p>{{ product.description }}</p>
+  <p>{{ product.detail }}</p>
 </div>
 
 <div class="imgs">
-    <img src={{product.img}}>
+    <img src={{product.imagePath}}>
 </div>
 <mat-card class="info">
 <div class="allergy">
     <label>Allergy:</label>
-    {{product.allergy}}
+    {{product.allergyContent}}
 </div>
 
-<div class="alc">
-<label>Alcohol:</label>
-    {{product.alcohol}}
-</div>
 
 <div class="comment">
     <label>Comment:</label><br>
-    {{product.comment}}
+    {{product.itemComment}}
 </div>
 </mat-card>
 
 <mat-card class="healthy">
 <div class="fat">
-    {{product.fat}}
+    {{product.fatLevel}}
 </div>
 
 <div class="sugar">
-    {{product.sugar}}
+    {{product.sugarLevel}}
 </div>
 
 <div class="calo">
-    {{product.calorie}}
+    {{product.calorieLevel}}
 </div>
 </mat-card>
 

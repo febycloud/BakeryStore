@@ -1,11 +1,12 @@
 
 <h1>&#160;&#160;YOUR SHOPPING CART</h1>
-<div [formGroup]="model">
+<div [formGroup]="angForm">
 <div class="cart-item" *ngFor="let item of items">
 <br>
+<div formGroup="orders">
     <mat-card class="card">
     <b>Item:</b>  
-    {{ item.name }}<br><input value="{{item.name}}" formArrayName="orderProductName">
+    {{ item.name }}<br><input value="{{item.name}}" >
     <b>Price:</b>   <input value="{{item.price}}">
     {{ item.price}} &#160;&#160;&#160;&#160;
     <mat-form-field>
@@ -19,6 +20,8 @@
     <mat-label>Leave a comment</mat-label>
     <textarea matInput placeholder="I want ..." value='{{item.orderComment}}'></textarea>
     </mat-form-field>
+
+    <a mat-raised-button color="primary" (click)="makeItem(item)" class="button"  > CheckItems </a><br>
     </mat-card>
 </div>
 <br><br>
@@ -77,9 +80,11 @@
               <mat-label>CVV</mat-label>
               <input matInput type="number" placeholder="123"></mat-form-field><br>
 
-              <p>{{model.value |json}}</p>
+              <p>{{angForm.value |json}}</p>
 </mat-expansion-panel>
-</div></div>
+</div>
+
+</div>
 <br>
 
 <a mat-raised-button color="primary" (click)="makeOrder()" class="button"  > Checkout </a><br>

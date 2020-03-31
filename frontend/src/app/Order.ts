@@ -6,13 +6,7 @@ constructor(
     public tax:Number,
     public total:Number,
     public date:Date,
-    public orderProductId:Array<String>,
-    public orderProductName:Array<String>,
-    public orderProductIsDonation:Array<Boolean>,
-    public orderProductIsGift:Array<Boolean>,
-    public orderProductComment:Array<String>,
-    public orderProductQuantity:Array<Number>,
-    public orderProductPrice:Array<Number>,
+    public orderProducts=new Array<orderProducts>(),  
     public paymentMethod:String,
     public customerFullName:String,
     public phone:String,
@@ -23,4 +17,16 @@ constructor(
     public province:String,
     public postalCode:String,
     public shippingDetail:String){}
+}
+
+export class orderProducts{
+    constructor( Id:String,
+                 productName:String,
+                 isDonation:Boolean,
+                 isGift:Boolean,
+                 comment:String,
+                 price:Number,
+                 quantity:Number
+
+    ){}
 }

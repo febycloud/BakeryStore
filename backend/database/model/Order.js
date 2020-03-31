@@ -10,13 +10,16 @@ let Order=new Schema({
     tax:{type:Number},
     total:{type:Number},
     date:{type:Date},
-    orderProductId:{ type: Array},
-    orderProductName:{ type: Array},
-    orderProductIsDonation:{ type: Array},
-    orderProductIsGift:{type: Array},
-    orderProductComment:{type: Array},
-    orderProductQuantity:{ type: Array},
-    orderProductPrice:{ type: Array},
+    orderProducts:[{
+    Id:{type:String},
+    productName:{type:String},
+    isDonation:{type:String},
+    isGift:{type:String},
+    comment:{type:String},
+    price:{type:Number},
+    quantity:{type:Number} 
+
+    }],
     paymentMethod:{type:String},
     customerFullName:{type:String},
     phone:{type:String},
@@ -32,6 +35,7 @@ let Order=new Schema({
     
     collection: 'orders'   
 })
+
 
 
 
