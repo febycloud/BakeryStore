@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { CartService } from '../cart.service';
 import{OrderService} from '../order.service';
-import { FormGroup, FormBuilder, Validators } from '@angular/forms';
+import { FormGroup, FormBuilder} from '@angular/forms';
 import {Router} from '@angular/router';
 import {Order, orderProducts} from '../Order';
 import { empty } from 'rxjs';
@@ -51,14 +51,12 @@ export class CartComponent implements OnInit {
   //object for collect forms
   createForm(){
   this.angForm=this.fb.group({
-    orderId:[''],
     status:['TobeConfirmd'],
     subtotal:[],
     tax:[],
     total:[],
     date:[],
     orderProducts:this.fb.array([ this.fb.group({
-      Id:'',
       productName:'',
       isDonation:'',
       isGift:'',
@@ -91,6 +89,7 @@ makeItem(item){
 
   ngOnInit() {
     this.items = this.cartService.getItems();
+    console.log(this.items);
     }
    
 

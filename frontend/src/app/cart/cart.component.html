@@ -6,24 +6,24 @@
 <div formGroup="orders">
     <mat-card class="card">
     <b>Item:</b>  
-    {{ item.name }}<br><input value="{{item.name}}" >
-    <b>Price:</b>   <input value="{{item.price}}">
+    {{ item.name }}<br>
+    <b>Price:</b>   
     {{ item.price}} &#160;&#160;&#160;&#160;
     <mat-form-field>
         <mat-label>Qty:</mat-label>
-        <input matInput type="number" min="0" value="{{item.orderQty}}">
+        <input matInput type="number" min="0" >
       </mat-form-field>
-    <br> {{item.orderGift.value| json}} {{item.orderDonate.value}}
-    <mat-checkbox [checked]="item.orderGift">This is a gift</mat-checkbox> &#160;&#160;
-    <mat-checkbox [checked]="item.orderDonate">Donate it </mat-checkbox><br>
+    <br>
+    <mat-checkbox >This is a gift</mat-checkbox> &#160;&#160;
+    <mat-checkbox >Donate it </mat-checkbox><br>
     <mat-form-field class="comment"> 
     <mat-label>Leave a comment</mat-label>
-    <textarea matInput placeholder="I want ..." value='{{item.orderComment}}'></textarea>
+    <textarea matInput placeholder="I want ..." ></textarea>
     </mat-form-field>
 
     <a mat-raised-button color="primary" (click)="makeItem(item)" class="button"  > CheckItems </a><br>
     </mat-card>
-</div>
+</div></div>
 <br><br>
 <div class="information">
 <mat-expansion-panel>
