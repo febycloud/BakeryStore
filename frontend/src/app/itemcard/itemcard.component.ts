@@ -21,6 +21,7 @@ export class ItemcardComponent implements OnInit  {
   ngOnInit(){
     this.ms.getProducts().subscribe((data:Product[])=>{
       this.items=data;
+      console.log(this.items);
     });
   }
 }

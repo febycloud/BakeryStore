@@ -2,7 +2,7 @@ const mongoose=require('mongoose');
 const Schema=mongoose.Schema;
 
 let Product=new Schema({
-    _id:{type:String},
+    //_id:{type:String},
     name:{type:String},
     imagePath:{type:String},
     price:{type:Number},

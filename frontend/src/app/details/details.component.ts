@@ -22,6 +22,8 @@ export class DetailsComponent implements OnInit {
     this.route.params.subscribe(params => {
       this.ms.getMember(params[`id`]).subscribe((data:Product)=>{
         this.product=data;
+        console.log(this.product);
+        console.log(data)
       });
     });
     }

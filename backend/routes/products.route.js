@@ -12,10 +12,16 @@ productRoutes.route('/').get(function(req,res){
     });
 });
 
+//console.log(Product.findById('5e7ce494bc973e62fca75f93'));
 productRoutes.route('/:id').get(function (req, res) {
     let id = req.params.id;
-    Product.findById(id, function (err, member) {
-      res.json(member);
+    console.log(id);
+    Product.findById(id, function (err, products) {
+      if(err){console.log(err);}
+      else{
+          res.json(products);
+          console.log(products);
+      }
     });
   });
 
