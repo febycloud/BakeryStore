@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { CartService } from '../cart.service';
 import{OrderService} from '../order.service';
-import { FormGroup, FormBuilder} from '@angular/forms';
+import { FormGroup, FormBuilder, FormControl, FormArray} from '@angular/forms';
 import {Router} from '@angular/router';
 import {Order, orderProducts} from '../Order';
 import { empty } from 'rxjs';
@@ -56,13 +56,7 @@ export class CartComponent implements OnInit {
     tax:[],
     total:[],
     date:[],
-    orderProducts:this.fb.array([ this.fb.group({
-      productName:'',
-      isDonation:'',
-      isGift:'',
-      comment:'',
-      price:'',
-      quantity:''})]),
+    orderProducts:this.fb.array([]),
     paymentMethod:[''],
     customerFullName:[''],
     phone:[''],
@@ -74,6 +68,10 @@ export class CartComponent implements OnInit {
     postalCode:[''],
     shippingDetail:[''],
   })
+}
+
+get ProductOrder(){
+  return this.angForm.controls['orderProducts'] as FormArray;
 }
 
   makeOrder(){
@@ -88,10 +86,28 @@ makeItem(item){
  
 
   ngOnInit() {
+    console.log(this.angForm.value);
     this.items = this.cartService.getItems();
     console.log(this.items);
+    
+    
+   
+    for(let i of this.items){
+      console.log(i.name);
+      this.ProductOrder.push(new FormGroup({
+      productName:new FormControl(i.name),
+      isDonation:new FormControl(null),
+      isGift:new FormControl(null),
+      comment:new FormControl(null),
+      price:new FormControl(i.price),
+      quantity:new FormControl(null),
+      }),)
+      
+    }
+    console.log(this.angForm.value);
+    console.log(this.ProductOrder.controls);
     }
    
-
+  
 
 }

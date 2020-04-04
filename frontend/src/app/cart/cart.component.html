@@ -1,28 +1,30 @@
 
 <h1>&#160;&#160;YOUR SHOPPING CART</h1>
 <div [formGroup]="angForm">
-<div class="cart-item" *ngFor="let item of items">
+<div formArrayName="orderProducts">
+<div class="cart-item" *ngFor="let item of ProductOrder.controls;let i = index">
 <br>
-<div formGroup="orders">
+<div [formGroupName]="i">
     <mat-card class="card">
     <b>Item:</b>  
-    {{ item.name }}<br>
+    {{ item.controls.productName.value }}<br>
     <b>Price:</b>   
-    {{ item.price}} &#160;&#160;&#160;&#160;
+    {{ item.controls.price.value}} &#160;&#160;&#160;&#160;
     <mat-form-field>
         <mat-label>Qty:</mat-label>
-        <input matInput type="number" min="0" >
+        <input matInput type="number" min="0" formControlName="quantity">
       </mat-form-field>
     <br>
     <mat-checkbox >This is a gift</mat-checkbox> &#160;&#160;
     <mat-checkbox >Donate it </mat-checkbox><br>
     <mat-form-field class="comment"> 
     <mat-label>Leave a comment</mat-label>
-    <textarea matInput placeholder="I want ..." ></textarea>
+    <textarea matInput placeholder="I want ..." formControlName="comment" ></textarea>
     </mat-form-field>
 
     <a mat-raised-button color="primary" (click)="makeItem(item)" class="button"  > CheckItems </a><br>
     </mat-card>
+  </div>
 </div></div>
 <br><br>
 <div class="information">
