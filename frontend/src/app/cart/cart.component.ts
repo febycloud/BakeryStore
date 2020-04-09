@@ -5,6 +5,7 @@ import { FormGroup, FormBuilder, FormControl, FormArray} from '@angular/forms';
 import {Router} from '@angular/router';
 import {Order, orderProducts} from '../Order';
 import { empty } from 'rxjs';
+import { summaryFileName } from '@angular/compiler/src/aot/util';
 interface Province {
   value: string;
   viewValue: string;
@@ -23,12 +24,13 @@ interface paymentMethod {
 
 
 export class CartComponent implements OnInit {
-  angForm: FormGroup;
-
+   angForm: FormGroup;
+   subtotal:number;
   constructor(private fb: FormBuilder,private cartService: CartService,private orderService:OrderService , private router: Router
-    ) {this.createForm();}
+    ) {this.createForm();
+    }
   //display part
-
+  
   //interface of province option
   provinces: Province[] = [
     {value: 'ON', viewValue: 'Ontario'},
@@ -51,7 +53,7 @@ export class CartComponent implements OnInit {
   //object for collect forms
   createForm(){
   this.angForm=this.fb.group({
-    status:['TobeConfirmd'],
+    status:[''],
     subtotal:[],
     tax:[],
     total:[],
@@ -66,46 +68,48 @@ export class CartComponent implements OnInit {
     city:[''],
     province:[''],
     postalCode:[''],
-    shippingDetail:[''],
   })
 }
+
 
 get ProductOrder(){
   return this.angForm.controls['orderProducts'] as FormArray;
 }
 
-  makeOrder(){
-   //this.order=this.orderService.addOrder(123,'TobeConfirmd',11,2,14,new Date(),[1,'cake',false,false,'no sugar',3,66],'Visa','nami',224,'aaa@a.com','aaa1 st','lala','waterloo','lamu','n2bbcd','');
-    setTimeout(()=>this.router.navigate(['success']),500);
+  addOrder(subtotal,tax,total,orderProducts,paymentMethod,customerFullName,phone,email,shippingAddress,deliveryNote,city,province,postalCode){
+   this.orderService.addOrder('TobeConfirmed',subtotal,tax,total,new Date(),orderProducts.value,paymentMethod,customerFullName,phone,email,shippingAddress,deliveryNote,city,province,postalCode,'');
+    setTimeout(()=>this.router.navigate(['success']),900);
   }
   orders=[];
-makeItem(item){
-  
-  console.log(this.orders);
-}
- 
 
   ngOnInit() {
-    console.log(this.angForm.value);
     this.items = this.cartService.getItems();
-    console.log(this.items);
+
     
-    
-   
     for(let i of this.items){
-      console.log(i.name);
       this.ProductOrder.push(new FormGroup({
       productName:new FormControl(i.name),
-      isDonation:new FormControl(null),
-      isGift:new FormControl(null),
+      isDonation:new FormControl(false),
+      isGift:new FormControl(false),
       comment:new FormControl(null),
       price:new FormControl(i.price),
-      quantity:new FormControl(null),
+      quantity:new FormControl(0),
+      subbyitem:new FormControl(0),
       }),)
+ }
+
+ var qtyFormControls = this.ProductOrder.controls.map(x => x.get('quantity'));
+
+   
+
+    this.ProductOrder.valueChanges.subscribe(value => {
+      var qtyFormControls = this.ProductOrder.controls.map(x => x.get('quantity'));
+      console.log(qtyFormControls)
+
       
-    }
-    console.log(this.angForm.value);
-    console.log(this.ProductOrder.controls);
+   })
+   console.log(this.subtotal);
+
     }
    
   

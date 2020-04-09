@@ -4,7 +4,7 @@ const Schema=mongoose.Schema;
 //define collections
 
 let Order=new Schema({
-    orderId:{type:String},
+    
     status:{type:String},
     subtotal:{type:Number},
     tax:{type:Number},
