@@ -22,14 +22,14 @@
     <textarea matInput placeholder="I want ..." formControlName="comment" ></textarea>
     </mat-form-field><br>
     <b>SubTotal: </b>
-    <input formControlName="subbyitem" matInput type="number" value="{{item.controls.price.value *item.controls.quantity.value}}" #subbyitem> <br>
+    <input formControlName="subbyitem" matInput type="number"> <br>
     </mat-card>
   </div>
 </div></div>
 <br><br>
 <div class="information">
   <mat-card>
-    <b>SubTotal:</b><br>
+    <b>SubTotal:</b>{{angForm.get('subtotal').value}}<br>
     <b>Tax:</b><br>
     <b>Total:</b><br>
 
