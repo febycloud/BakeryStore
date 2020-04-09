@@ -103,8 +103,7 @@ export class CartComponent implements OnInit, OnDestroy {
       }))
     }
 
-    const orderProducts: FormArray = this.angForm.get('orderProducts') as FormArray;
-    const forms: FormGroup[] = orderProducts.controls as FormGroup[];
+    const forms: FormGroup[] = this.ProductOrder.controls as FormGroup[];
     const qtyFormControls: AbstractControl[] = forms.map(x => x.get('quantity'));
 
     qtyFormControls.forEach(qfc => {
