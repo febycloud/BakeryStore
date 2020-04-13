@@ -19,7 +19,9 @@ app.use(cors());
 
 app.use('/orders',orderRoute);
 app.use('/products',productRoute)
+//app.use(express.static('/images'));
 const port = process.env.PORT || 3000;
+
 const server = app.listen(port, function () {
     console.log('Listening on port ' + port);
 });
